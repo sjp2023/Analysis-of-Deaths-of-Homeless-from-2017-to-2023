@@ -8,14 +8,15 @@ This paper is used by Quarto in R Studio to make it more simple and easy to read
 
 ## Data Structure
 The unedited data set was extracted from open source: Open Data Toronto Data and files and repo that are used in this paper can be found in below:
-- /input/data/ contains 'csv' files and sketches for the data
-- /output/paper/ contains pdf (Report paper), qmd (Main Quarto)
-- /output/references.bib contains references.bib (references) to cite
-- /scripts/ contains 'R' extension test files (00-simulate R, 01-download_data R)
+- `input/data` contains 'csv' files and sketches for the data
+- `output/paper` contains pdf (Report paper), qmd (Main Quarto)
+- `output/references.bib` contains references.bib (references) to cite
+- `scripts` contains 'R' extension test files (00-simulate R, 01-download_data R)
 - 
 ## To run and locate
 The unedited data set was extracted from open source: Open Data Toronto Data and files and repo that are used in this paper can be found in below:
-- Run scripts/00-download_data.R to download raw data
-- Run scripts/01-simulate_data.R to download raw data
-- Run scripts/02-data_cleaning.R to generate cleaned data
-- Run outputs/paper/Death_of_People_Experiencing_Homelessness.qmd to generate the PDF of the paper
+- Run `scripts/00-download_data.R` to download raw data
+- Run `scripts/01-simulate_data.R` to simulate raw data
+- Run `scripts/02-data_cleaning.R` to generate cleaned data
+- Run `scripts/03-test_data.R` to generate test data
+- Run `outputs/paper/Death_of_People_Experiencing_Homelessness.qmd` to generate the PDF of the paper
