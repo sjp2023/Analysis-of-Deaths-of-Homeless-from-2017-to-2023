@@ -1,7 +1,7 @@
 ---
 title: "Do homeless people experience more death before and after the COVID-19 pandemic? An analysis of the deaths of people experiencing homelessness from 2017 to 2023."
 author: "Sky Suh"
-thanks: "Codes and datas for this analysis paper are available at: https://github.com/sjp2023/Deaths_of_People_Experiencing_Homelessness"
+thanks: "Codes and datas for this analysis paper are available at: https://github.com/sjp2023/Analysis-of-Deaths-of-Homeless-from-2017-to-2023.git"
 date: Jan 20, 2024
 abstract: "The datasets of the deaths of people experiencing homelessness were tracked down the number of deaths and their causes across Toronto-by-Toronto Public Health (TPH) beginning in January 2017 and including unknown or pending causes of death that were reported and updated on these datasets [@citynews]. Based on using the data and analysis from [@opendatatoronto], this paper will explain how homeless people will experience death before, during and after the COVID-19 pandemic and talk about the hypothesis of this argument with tables and figures to support the hypothesis. For further data analysis, this paper shows the performance of the survey for the count of deaths of people experiencing homelessness betweeb before and after COVID-19 pandemic."
 format: pdf
