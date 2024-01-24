@@ -12,3 +12,10 @@ The unedited data set was extracted from open source: Open Data Toronto Data and
 - /output/paper/ contains pdf (Report paper), qmd (Main Quarto)
 - /output/references.bib contains references.bib (references) to cite
 - /scripts/ contains 'R' extension test files (00-simulate R, 01-download_data R)
+- 
+## To run and locate
+The unedited data set was extracted from open source: Open Data Toronto Data and files and repo that are used in this paper can be found in below:
+- Run scripts/00-download_data.R to download raw data
+- Run scripts/01-simulate_data.R to download raw data
+- Run scripts/02-data_cleaning.R to generate cleaned data
+- Run outputs/paper/Death_of_People_Experiencing_Homelessness.qmd to generate the PDF of the paper
