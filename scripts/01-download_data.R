@@ -1,26 +1,49 @@
-#### Preamble ####
-# Purpose: Downloads and saves the data from [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
-# License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
-
-
-#### Workspace setup ####
-library(opendatatoronto)
 library(tidyverse)
-# [...UPDATE THIS...]
+library(janitor)
+library(dplyr)
 
-#### Download data ####
-# [...ADD CODE HERE TO DOWNLOAD...]
+raw_cause_data <- read_csv("raw_cause_data.csv")
+raw_month_data <- read_csv("raw_month_data.csv")
+raw_demographic_data <- read_csv("raw_demographic_data.csv")
+
+
+cleaned_cause_data <-
+  clean_names(raw_cause_data)
+
+cleaned_month_data <-
+  clean_names(raw_month_data)
+
+cleaned_demographic_data <-
+  clean_names(raw_demographic_data)
+
+data <- read.csv("raw_cause_data.csv")
+
+selected_columns <- c("X.id", "Year.of.death", "Cause_of_death", "Count")
+raw_cause_data <- select(raw_cause_data, "X_id", "Year.of.death", "Cause_of_death", "Count")
+
+raw_cause_data_no_missing <- raw_cause_data %>% na.omit()
+
+raw_cause_data_unique <- raw_cause_data_no_missing %>% distinct()
+
+threshold <- 3
+raw_cause_data_no_outliers <- raw_cause_data_unique 
+
+raw_cause_data_no_outliers$Count <- as.numeric(raw_cause_data_no_outliers$Count)
+
+raw_cause_data_no_outliers$new_variable <- raw_cause_data_no_outliers$Year.of.death * 2
+
+summary(raw_cause_data_no_outliers)
 
 
 
-#### Save data ####
-# [...UPDATE THIS...]
-# change the_raw_data to whatever name you assigned when you downloaded it.
-write_csv(the_raw_data, "inputs/data/raw_data.csv") 
+cleaned_cause_data2 <- select(cleaned_cause_data, x_id,year_of_death,cause_of_death, count)
 
-         
+cleaned_cause_data3 <- select(cleaned_cause_data, year_of_death,count)
+
+
+
+write_csv(cleaned_cause_data,"cleaned_cause_data.csv")
+write_csv(cleaned_month_data,"cleaned_month_data.csv")
+write_csv(cleaned_demographic_data,"cleaned_demographic_data.csv")
+write.csv(cleaned_cause_data2, "cleaned_cause_data2.csv", row.names = FALSE)
+write_csv(cleaned_cause_data3,"cleaned_cause_data3.csv")
