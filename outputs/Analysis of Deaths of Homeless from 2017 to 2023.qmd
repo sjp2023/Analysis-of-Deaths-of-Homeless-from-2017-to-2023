@@ -117,24 +117,6 @@ Lastly, to make the merged simple table for death data before/after the pandemic
 
 # Results
 
-```{r}
-#| message: false
-#| echo: false
-#| label: fig-correlation-of-month
-#| fig-cap: Correlation between month and death roll count before/after COVID-19
-#| #Code cited from: http://www.sthda.com/english/wiki/scatter-plots-r-base-graphs & https://www.tutorialspoint.com/r/r_scatterplots.htm
-
-cleaned_month_data |>
-  ggplot(data, mapping = aes(x = month_of_death, y = count)) +
-  geom_point() +
-  labs(
-    title = "Month of Death vs Count for death toll of homeless before/after COVID-19",
-    x = "Month from before to after COVID-19",
-    y = "Count of death toll for homeless"
-  ) +
-  theme_minimal()
-```
-
 ## Death of Homeless Before/After COVID-19 Pandemic by year
 Below this paragraph, the graph - @fig-death_homeless_before presents the deaths of the homeless before and after the COVID-10 pandemic by year, and comparing the death tolls of the homeless before and after the COVID-19 pandemic, there was a total 949 of people experiencing homelessness died across the City of Toronto. Among 949 people, 2021 was the highest year of homeless deaths after the pandemic, mostly unknown - might be the COVID-19 and drug toxicity while the lowest year was 2023 a total 79 of people passed away due to various reasons including cancer, accident, and drug toxicity). 2022 had the second highest year of death of homeless which is 189, following by 2020 as the third highest year of homeless death’s year with 143 people happened during/after the pandemic. 2018 is the second lowest year of death with 94 people before the pandemic, with 2017 coming in the third lowest with 100 people also before COVID-19. Lastly, 2019 was the median of the death toll. For the full visualization, please look through of @fig-death_homeless_before
 
@@ -181,6 +163,9 @@ cleaned_month_data |>
   ) +
   theme_classic() 
 ```
+
+
+
 ```{r}
 #| message: false
 #| echo: false
@@ -188,8 +173,10 @@ cleaned_month_data |>
 #| fig-cap: Correlation between year and death roll count before/after COVID-19
 #| #Code cited from: http://www.sthda.com/english/wiki/scatter-plots-r-base-graphs & https://www.tutorialspoint.com/r/r_scatterplots.htm
 
-cleaned_cause_data3 |>
-  ggplot(data, mapping = aes(x = year_of_death, y = count)) +
+correlation_result <- cor(cleaned_cause_data3$year_of_death, cleaned_cause_data3$count)
+cat("Correlation between year and count:", correlation_result)
+
+  ggplot(cleaned_cause_data3, mapping = aes(x = year_of_death, y = count)) +
   geom_point() +
   labs(
     title = "Year of Death vs Count for death toll of homeless before/after COVID-19",
@@ -203,7 +190,8 @@ cleaned_cause_data3 |>
 # Discussion
 Overall, summarizing up the previous tables and graphs gathered by the data provided with the three different CSV files, it shows that there is a positive correlation between the death tolls of people experiencing homelessness in Toronto and before and after COVID-19 pandemic divided into the year and month for detail, particularly looking up the table of the month and cause of death tables that present briefly about the arguments. It illustrates in @fig-death_homeless_before and @fig-death_homeless_after as the graph to visualize more clearly and easier to see the comparison with the year and month vs. death toll of people who experienced homelessness before/after COVID-19. 
 
-Based on what is written both in @fig-death_homeless_before and @fig-death_homeless_after, most of the death tolls happened during the pandemic from 2020 to 2021 which was the highest year of death counts for the homeless while 2017-2019 - before COVID-19 happened the lowest year to count the death of homeless. Even in the correlation with the month, it presents November and January for the death tolls which are the late fall to the winter, when the number of COVID-19 increased compared to the summer season between 2020 to 2022. The result is shown well about positive correlation with the year, month and the death toll before/after the pandemic. See @fig-correlation-of-year and @fig-correlation-of-month for the detailed data that was made as the scatter plots. 
+Based on what is written both in @fig-death_homeless_before and @fig-death_homeless_after, most of the death tolls happened during the pandemic from 2020 to 2021 which was the highest year of death counts for the homeless while 2017-2019 - before COVID-19 happened the lowest year to count the death of homeless. Even in the correlation with the month, it presents November and January for the death tolls which are the late fall to the winter, when the number of COVID-19 increased compared to the summer season between 2020 to 2022. The result is shown well about positive correlation with the year, month and the death toll before/after the pandemic. See @fig-correlation-of-year for the detailed data that was made as the scatter plots but since month is characteristic which unable to make the correlation with scatter plot unlike the correlation of year and count which is numeric in the data sets. 
+
 Even though it includes cleared data sets provided by Toronto Public Health (TPH) from OpenDataToronto, it has errors with the measurement and not enough data with visualization. Firstly, the data from this open source is not enough and is vague to write and draw the cleared graph and scatterplot with the survey from Toronto Public Health (TPH) since there may be the possibility of human error. For example, there are unknown sections in the cleaned month data that some of the death counts do not know about the month that the homeless passed away, also, the total death toll counts from the year data set and month data set are slightly different which is unreliable and incredible to use it as the data [@opendatatoronto]. Third, the visualization of the graphs and scatterplot are overlapped and hard to see which months/or years show the number of counts; it distributed the readers seeing the correct data and comparing the data with the year/or month for the COVID-10 pandemic. These errors make unclarity of the diagrams and the overall of the reports. 
 
 Since it has some errors, there are limitations to conducting this analysis. The clarity of the data source of the month of death for the homeless as named as unknown, lacks uncleared transparency as that where TPH got consent from families of those homeless. Also, there were no total dataset files including ID, cause, year, month, demographic and counts of death that will help to understand the readers and provide the visualizations of the whole picture of the data. In addition, another limitation is as mentioned in the previous paragraph that it will be inaccurate due to not same total count of death. For instance, according to Toronto Public Health (TPH), the total number of death of homeless is 223 reported in 2021 [@TPH], but what it presented in this opendatatoronto data set was 217 which is a lower number and presents differences [@opendatatoronto].
